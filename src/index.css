@@ -386,6 +386,7 @@
   border-radius: var(--hse-radius);
   padding: 32px;
   box-shadow: var(--hse-shadow);
+  overflow: hidden;
   animation: hseSlideIn 0.35s ease;
 }
 
@@ -398,6 +399,44 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Картинка пин-ап в дилемме */
+.hse-dilemma-img-wrap {
+  position: relative;
+  width: calc(100% + 64px);
+  margin: -32px -32px 24px -32px;
+  height: 220px;
+  overflow: hidden;
+  border-radius: var(--hse-radius) var(--hse-radius) 0 0;
+  flex-shrink: 0;
+}
+
+.hse-dilemma-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.hse-dilemma:hover .hse-dilemma-img {
+  transform: scale(1.04);
+}
+
+.hse-dilemma-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.96) 100%
+  );
+}
+
+.hse-dilemma-body {
+  position: relative;
 }
 
 .hse-dilemma-situation {
@@ -514,7 +553,7 @@
 .hse-penalty-card {
   background: var(--hse-white);
   border-radius: var(--hse-radius);
-  padding: 36px;
+  overflow: hidden;
   box-shadow: var(--hse-shadow);
   text-align: center;
   animation: hseSlideIn 0.35s ease;
@@ -529,13 +568,54 @@
 
 .hse-penalty-card {
   border: 2px solid #fca5a5;
-  background: #fff5f5;
+}
+
+/* Картинка пин-ап в результате */
+.hse-rc-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.hse-rc-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.hse-rc-img-wrap:hover .hse-rc-img {
+  transform: scale(1.04);
+}
+
+.hse-rc-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.97) 100%
+  );
+}
+
+.hse-rc-body {
+  padding: 20px 28px 28px;
+}
+
+/* Если картинки нет — добавляем верхний паддинг напрямую к карточке */
+.hse-result-card:not(:has(.hse-rc-img-wrap)) .hse-rc-body,
+.hse-penalty-card:not(:has(.hse-rc-img-wrap)) .hse-rc-body {
+  padding-top: 32px;
 }
 
 .hse-rc-emoji,
 .hse-penalty-emoji {
-  font-size: 52px;
-  margin-bottom: 16px;
+  font-size: 44px;
+  margin-bottom: 12px;
   display: block;
 }
 

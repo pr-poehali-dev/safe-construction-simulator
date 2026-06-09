@@ -28,6 +28,7 @@ interface PendingPenalty {
   scheduleDelta: number;
   hseDelta: number;
   emoji: string;
+  image?: string;
 }
 
 interface Choice {
@@ -39,6 +40,7 @@ interface Choice {
   hseDelta: number;
   result: string;
   resultEmoji: string;
+  resultImage?: string;
   pendingPenalty?: PendingPenalty;
 }
 
@@ -46,6 +48,7 @@ interface Dilemma {
   title: string;
   description: string;
   situation: string;
+  image?: string;
   choices: Choice[];
 }
 
@@ -69,6 +72,7 @@ const ROUNDS: Round[] = [
       {
         title: "Откосы котлована плывут",
         situation: "Ситуация 1 из 3",
+        image: "https://cdn.poehali.dev/projects/a0e25bcd-99a5-4ccf-ba65-51a3b8ee9869/files/8874c1cc-4f4b-48c4-a381-c838fc376875.jpg",
         description:
           'После трёх дней дождей откосы котлована начали сползать. Прораб Петрович смотрит на это философски: "Земля — она живая, начальник". Подрядчик предлагает продолжить копку без шпунтового ограждения, сэкономив 800 тыс. руб. и 3 дня.',
         choices: [
@@ -82,12 +86,14 @@ const ROUNDS: Round[] = [
             result:
               'Сэкономили! Петрович доволен. Но на следующий день откос сполз прямо на экскаватор. Михалыч цел (чудо), экскаватор — нет. Штраф Ростехнадзора, аварийное восстановление и простой бригады обошлись втрое дороже.',
             resultEmoji: "💸",
+            resultImage: "https://cdn.poehali.dev/projects/a0e25bcd-99a5-4ccf-ba65-51a3b8ee9869/files/017a5b53-6fa3-4da4-9d71-19738d52bdc8.jpg",
             pendingPenalty: {
               text: "Откос сполз на экскаватор Михалыча. Аварийное восстановление, штраф Ростехнадзора, простой бригады 5 дней.",
               budgetDelta: -12,
               scheduleDelta: -10,
               hseDelta: -10,
               emoji: "🚨",
+              image: "https://cdn.poehali.dev/projects/a0e25bcd-99a5-4ccf-ba65-51a3b8ee9869/files/017a5b53-6fa3-4da4-9d71-19738d52bdc8.jpg",
             },
           },
           {
@@ -106,6 +112,7 @@ const ROUNDS: Round[] = [
       {
         title: "Кабель под землёй",
         situation: "Ситуация 2 из 3",
+        image: "https://cdn.poehali.dev/projects/a0e25bcd-99a5-4ccf-ba65-51a3b8ee9869/files/27fc3439-c20b-4e86-9111-df67c1870503.jpg",
         description:
           'Экскаваторщик Михалыч копает в зоне прохождения кабеля высокого напряжения. Схемы коммуникаций "где-то есть, но их ищут". Подрядчик успокаивает: "Да мы всегда так копаем, чуйка у Михалыча отменная, 20 лет на машине."',
         choices: [
@@ -119,12 +126,14 @@ const ROUNDS: Round[] = [
             result:
               'Михалыч нашёл кабель. Ковшом. Взрыв дуги, авария в энергосистеме района. Три улицы без света на 8 часов. Михалыч жив — защитная дуга ушла в землю. Но иск от электросетей и штраф...',
             resultEmoji: "⚡",
+            resultImage: "https://cdn.poehali.dev/projects/a0e25bcd-99a5-4ccf-ba65-51a3b8ee9869/files/d28eaa6b-5be4-41d5-bf1a-32c49e56c8b6.jpg",
             pendingPenalty: {
               text: "Повреждение кабеля ВН. Иск от энергосетей, штраф, простой + оплата аварийной бригады электриков.",
               budgetDelta: -18,
               scheduleDelta: -8,
               hseDelta: -15,
               emoji: "⚡",
+              image: "https://cdn.poehali.dev/projects/a0e25bcd-99a5-4ccf-ba65-51a3b8ee9869/files/d28eaa6b-5be4-41d5-bf1a-32c49e56c8b6.jpg",
             },
           },
           {
@@ -143,6 +152,7 @@ const ROUNDS: Round[] = [
       {
         title: "Украли ограждение котлована",
         situation: "Ситуация 3 из 3",
+        image: "https://cdn.poehali.dev/projects/a0e25bcd-99a5-4ccf-ba65-51a3b8ee9869/files/1a40cea8-09eb-4305-9f16-c4cd84e871ce.jpg",
         description:
           'Ночью местные дачники разобрали временное ограждение котлована "на нужды хозяйства". Рядом тротуар, по которому ходят люди. Котлован 6 метров глубиной. Прораб предлагает растянуть сигнальную ленточку и "повесить таблички".',
         choices: [
@@ -188,6 +198,7 @@ const ROUNDS: Round[] = [
       {
         title: "Зима. 12 этаж без ограждений",
         situation: "Ситуация 1 из 3",
+        image: "https://cdn.poehali.dev/projects/a0e25bcd-99a5-4ccf-ba65-51a3b8ee9869/files/a8572619-af6f-47a5-9552-8e5c05df442a.jpg",
         description:
           "Зима, -15°C, ветер. На 12 этаже не установлены ветрозащита и ограждения лифтовых шахт. Бригада монолитчиков отказывается выходить без страховочных привязей. Генподрядчик кричит в трубку: «Заливка бетона через 2 часа или штраф за простой!»",
         choices: [
@@ -225,6 +236,7 @@ const ROUNDS: Round[] = [
       {
         title: "Кран несёт арматуру над бытовкой",
         situation: "Ситуация 2 из 3",
+        image: "https://cdn.poehali.dev/projects/a0e25bcd-99a5-4ccf-ba65-51a3b8ee9869/files/b2d68e71-9450-4dbc-a51d-c51c0f82f95c.jpg",
         description:
           "Башенный кран переносит пачку арматуры весом 2 тонны прямо над крышей бытового городка, где 15 прорабов обедают борщом. Крановщик говорит: «Да я так всегда делаю, ни разу не ронял». Перенос городка — 1 день и 200 тыс. руб.",
         choices: [
@@ -262,6 +274,7 @@ const ROUNDS: Round[] = [
       {
         title: "Каменщик без каски",
         situation: "Ситуация 3 из 3",
+        image: "https://cdn.poehali.dev/projects/a0e25bcd-99a5-4ccf-ba65-51a3b8ee9869/files/21a3a872-adf2-4db2-86b5-e8a6d9450f06.jpg",
         description:
           "Инспектор ОТ поймал каменщика Ваню без каски на 8 этаже. Ваня объясняет: «Каска давит на чакры и мешает творческому потоку. Я 30 лет кладу без каски — и ничего.» Выбор: жёсткий штраф всей бригаде или провести задушевный разговор (ПАБ)?",
         choices: [
@@ -307,6 +320,7 @@ const ROUNDS: Round[] = [
       {
         title: "Щиток из картона и надежды",
         situation: "Ситуация 1 из 3",
+        image: "https://cdn.poehali.dev/projects/a0e25bcd-99a5-4ccf-ba65-51a3b8ee9869/files/8a30a071-2c63-4fe6-b7e0-40487457e3f4.jpg",
         description:
           "Электрик Серёга соорудил временный распределительный щиток из картонной коробки, изоленты и «чистой совести». От него запитаны 10 перфораторов одновременно. Коробка тёплая на ощупь. Серёга говорит: «Нормально, я её ногой придерживаю для надёжности».",
         choices: [
@@ -344,6 +358,7 @@ const ROUNDS: Round[] = [
       {
         title: "Костёр в пентхаусе",
         situation: "Ситуация 2 из 3",
+        image: "https://cdn.poehali.dev/projects/a0e25bcd-99a5-4ccf-ba65-51a3b8ee9869/files/613b7d7b-7a57-4cec-9ac5-1787cc6d77e4.jpg",
         description:
           "Маляры Гиви и Нодар жгут костёр в металлическом ведре прямо в будущей пентхаус-квартире на 24 этаже. Цель благородная — согреться и подсушить штукатурку. Вентиляция ещё не работает. Дым клубится по коридорам. «Зато сохнет быстро, начальник!»",
         choices: [
@@ -381,6 +396,7 @@ const ROUNDS: Round[] = [
       {
         title: "Мусор на путях эвакуации",
         situation: "Ситуация 3 из 3",
+        image: "https://cdn.poehali.dev/projects/a0e25bcd-99a5-4ccf-ba65-51a3b8ee9869/files/e34e9fca-7f27-48ea-b497-3483bbb81780.jpg",
         description:
           "Пути эвакуации завалены строительным мусором — обрезки гипсокартона, мешки из-под смеси, поддоны. Подрядчик успокаивает: «Вывезем всё в конце месяца, людей лишних нет». Послезавтра плановая проверка Стройнадзора.",
         choices: [
@@ -426,6 +442,7 @@ const ROUNDS: Round[] = [
       {
         title: "Альпинисты с просроченными корочками",
         situation: "Ситуация 1 из 3",
+        image: "https://cdn.poehali.dev/projects/a0e25bcd-99a5-4ccf-ba65-51a3b8ee9869/files/b12d4229-db41-4397-b8d7-cc1f35ceb88c.jpg",
         description:
           "Клининговый подрядчик пригнал промышленных альпинистов для финальной мойки окон. Проблема: удостоверения просрочены у троих, а верёвки закреплены за вентиляционные грибки на крыше (SWL: 50 кг, альпинист: 90 кг). Завтра визит Инвестора и приёмочная комиссия.",
         choices: [
@@ -463,6 +480,7 @@ const ROUNDS: Round[] = [
       {
         title: "Салют во дворе стройки",
         situation: "Ситуация 2 из 3",
+        image: "https://cdn.poehali.dev/projects/a0e25bcd-99a5-4ccf-ba65-51a3b8ee9869/files/56332068-3f1d-405e-8ebf-9ec0a69c0605.jpg",
         description:
           "Торжественное открытие ЖК. Инвестор Аркадий Борисович хочет запустить профессиональный салют прямо во дворе, где ещё стоит строительная техника, лежат материалы и есть незакрытые недоделки. «Я за всё плачу, хочу эффектно!»",
         choices: [
@@ -500,6 +518,7 @@ const ROUNDS: Round[] = [
       {
         title: "Неиспользованный бюджет на безопасность",
         situation: "Ситуация 3 из 3",
+        image: "https://cdn.poehali.dev/projects/a0e25bcd-99a5-4ccf-ba65-51a3b8ee9869/files/5cb52847-f63c-4e74-acea-97d1c8f55196.jpg",
         description:
           "Финальный аудит. На счету остались 3 миллиона рублей из бюджета на HSE — сэкономлены благодаря грамотным решениям. Главный бухгалтер намекает: «Можно оформить как премию РП за успешное завершение». Или вложить в обучение ИТР на следующий проект.",
         choices: [
@@ -611,7 +630,7 @@ function MetricBar({ label, value, color, icon }: { label: string; value: number
 
 export default function Index() {
   const [state, setState] = useState<GameState>(INITIAL_STATE);
-  const [showResult, setShowResult] = useState<{ text: string; emoji: string; safe: boolean; hasPenalty: boolean } | null>(null);
+  const [showResult, setShowResult] = useState<{ text: string; emoji: string; image?: string; safe: boolean; hasPenalty: boolean } | null>(null);
   const [showPenalty, setShowPenalty] = useState<PendingPenalty | null>(null);
   const [animKey, setAnimKey] = useState(0);
   const [savedExists] = useState(hasSave);
@@ -654,6 +673,7 @@ export default function Index() {
     setShowResult({
       text: choice.result,
       emoji: choice.resultEmoji,
+      image: choice.resultImage,
       safe: choice.safe,
       hasPenalty: !choice.safe && !!choice.pendingPenalty,
     });
@@ -865,6 +885,13 @@ export default function Index() {
           <div className="hse-center">
             {!showResult && !showPenalty && currentDilemma && (
               <div className="hse-dilemma" key={animKey}>
+                {currentDilemma.image && (
+                  <div className="hse-dilemma-img-wrap">
+                    <img src={currentDilemma.image} alt="" className="hse-dilemma-img" />
+                    <div className="hse-dilemma-img-overlay" />
+                  </div>
+                )}
+                <div className="hse-dilemma-body">
                 <div className="hse-dilemma-situation">{currentDilemma.situation}</div>
                 <h2 className="hse-dilemma-title">{currentDilemma.title}</h2>
                 <p className="hse-dilemma-desc">{currentDilemma.description}</p>
@@ -891,42 +918,59 @@ export default function Index() {
                     </button>
                   ))}
                 </div>
+                </div>
               </div>
             )}
 
             {showResult && !showPenalty && (
               <div className={`hse-result-card ${showResult.safe ? "hse-rc-safe" : "hse-rc-risk"}`} key="result">
-                <div className="hse-rc-emoji">{showResult.emoji}</div>
-                <div className={`hse-rc-badge ${showResult.safe ? "hse-rb-safe" : "hse-rb-risk"}`}>
-                  {showResult.safe ? "✅ Правильное решение" : "⚠️ Рискованное решение"}
-                </div>
-                <p className="hse-rc-text">{showResult.text}</p>
-                {showResult.hasPenalty && (
-                  <div className="hse-rc-warning">⏳ Последствия наступят на следующем шаге…</div>
+                {showResult.image && (
+                  <div className="hse-rc-img-wrap">
+                    <img src={showResult.image} alt="" className="hse-rc-img" />
+                    <div className="hse-rc-img-overlay" />
+                  </div>
                 )}
-                <button className="hse-btn hse-btn-primary" onClick={proceedAfterResult}>
-                  {showResult.hasPenalty ? "Посмотреть последствия →" : "Продолжить →"}
-                </button>
+                <div className="hse-rc-body">
+                  <div className="hse-rc-emoji">{showResult.emoji}</div>
+                  <div className={`hse-rc-badge ${showResult.safe ? "hse-rb-safe" : "hse-rb-risk"}`}>
+                    {showResult.safe ? "✅ Правильное решение" : "⚠️ Рискованное решение"}
+                  </div>
+                  <p className="hse-rc-text">{showResult.text}</p>
+                  {showResult.hasPenalty && (
+                    <div className="hse-rc-warning">⏳ Последствия наступят на следующем шаге…</div>
+                  )}
+                  <button className="hse-btn hse-btn-primary" onClick={proceedAfterResult}>
+                    {showResult.hasPenalty ? "Посмотреть последствия →" : "Продолжить →"}
+                  </button>
+                </div>
               </div>
             )}
 
             {showPenalty && (
               <div className="hse-penalty-card" key="penalty">
-                <div className="hse-penalty-emoji">{showPenalty.emoji}</div>
-                <div className="hse-penalty-badge">🚨 Последствия наступили</div>
-                <p className="hse-penalty-text">{showPenalty.text}</p>
-                <div className="hse-penalty-deltas">
-                  <span className="hse-neg">💰 {showPenalty.budgetDelta}%</span>
-                  <span className="hse-neg">📅 {showPenalty.scheduleDelta}%</span>
-                  <span className="hse-neg">🛡️ {showPenalty.hseDelta}%</span>
+                {showPenalty.image && (
+                  <div className="hse-rc-img-wrap">
+                    <img src={showPenalty.image} alt="" className="hse-rc-img" />
+                    <div className="hse-rc-img-overlay" />
+                  </div>
+                )}
+                <div className="hse-rc-body">
+                  <div className="hse-penalty-emoji">{showPenalty.emoji}</div>
+                  <div className="hse-penalty-badge">🚨 Последствия наступили</div>
+                  <p className="hse-penalty-text">{showPenalty.text}</p>
+                  <div className="hse-penalty-deltas">
+                    <span className="hse-neg">💰 {showPenalty.budgetDelta}%</span>
+                    <span className="hse-neg">📅 {showPenalty.scheduleDelta}%</span>
+                    <span className="hse-neg">🛡️ {showPenalty.hseDelta}%</span>
+                  </div>
+                  <div className="hse-penalty-moral">
+                    Дешёвое решение обошлось втрое дороже.<br />
+                    <strong>Безопасность экономит деньги.</strong>
+                  </div>
+                  <button className="hse-btn hse-btn-primary" onClick={proceedAfterResult}>
+                    Принять и двигаться дальше →
+                  </button>
                 </div>
-                <div className="hse-penalty-moral">
-                  Дешёвое решение обошлось втрое дороже.<br />
-                  <strong>Безопасность экономит деньги.</strong>
-                </div>
-                <button className="hse-btn hse-btn-primary" onClick={proceedAfterResult}>
-                  Принять и двигаться дальше →
-                </button>
               </div>
             )}
           </div>

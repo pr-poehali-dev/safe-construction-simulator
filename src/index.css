@@ -97,5 +97,686 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: "Golos Text", sans-serif;
   }
+}
+
+/* ═══════════════════════════════════════════════════
+   HSE GAME STYLES
+═══════════════════════════════════════════════════ */
+
+:root {
+  --hse-blue: #1d4ed8;
+  --hse-blue-light: #3b82f6;
+  --hse-blue-pale: #eff6ff;
+  --hse-blue-border: #bfdbfe;
+  --hse-dark: #0f172a;
+  --hse-mid: #334155;
+  --hse-muted: #64748b;
+  --hse-light: #f8fafc;
+  --hse-white: #ffffff;
+  --hse-green: #059669;
+  --hse-red: #dc2626;
+  --hse-amber: #d97706;
+  --hse-radius: 14px;
+  --hse-shadow:
+    0 1px 3px 0 rgba(0, 0, 0, 0.07), 0 4px 16px 0 rgba(30, 64, 175, 0.08);
+  --hse-shadow-lg: 0 8px 32px rgba(30, 64, 175, 0.13);
+}
+
+.hse-root {
+  min-height: 100vh;
+  background: var(--hse-light);
+  font-family: "Golos Text", sans-serif;
+  color: var(--hse-dark);
+}
+
+/* ── МЕНЮ ─────────────────────────────────────── */
+.hse-menu {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #eff6ff 0%, #ffffff 60%, #dbeafe 100%);
+}
+
+.hse-menu-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 32px;
+  text-align: center;
+}
+
+.hse-badge {
+  display: inline-block;
+  background: var(--hse-blue);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 99px;
+  margin-bottom: 24px;
+}
+
+.hse-menu-title {
+  font-size: clamp(36px, 6vw, 52px);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--hse-dark);
+  margin-bottom: 16px;
+}
+
+.hse-menu-title span {
+  color: var(--hse-blue);
+}
+
+.hse-menu-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--hse-muted);
+  margin-bottom: 32px;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hse-rounds-preview {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+.hse-round-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--hse-white);
+  border: 1.5px solid var(--hse-blue-border);
+  color: var(--hse-blue);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 99px;
+}
+
+.hse-menu-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.hse-btn {
+  font-family: "Golos Text", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 13px 28px;
+  border-radius: var(--hse-radius);
+  border: none;
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s,
+    opacity 0.15s;
+  letter-spacing: 0.01em;
+}
+
+.hse-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--hse-shadow-lg);
+}
+
+.hse-btn:active {
+  transform: translateY(0);
+}
+
+.hse-btn-primary {
+  background: var(--hse-blue);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(29, 78, 216, 0.3);
+}
+
+.hse-btn-primary:hover {
+  background: #1e40af;
+}
+
+.hse-btn-secondary {
+  background: var(--hse-white);
+  color: var(--hse-blue);
+  border: 2px solid var(--hse-blue-border);
+}
+
+.hse-menu-hint {
+  font-size: 13px;
+  color: var(--hse-muted);
+  background: var(--hse-blue-pale);
+  border: 1px solid var(--hse-blue-border);
+  border-radius: 10px;
+  padding: 10px 16px;
+}
+
+/* Decorative circles */
+.hse-menu-decoration {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hse-deco-circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.08;
+  background: var(--hse-blue);
+}
+
+.hse-deco-1 {
+  width: 400px;
+  height: 400px;
+  top: -120px;
+  right: -100px;
+}
+.hse-deco-2 {
+  width: 260px;
+  height: 260px;
+  bottom: -80px;
+  left: -60px;
+}
+.hse-deco-3 {
+  width: 160px;
+  height: 160px;
+  top: 40%;
+  left: 10%;
+  opacity: 0.05;
+}
+
+/* ── ШАПКА ИГРЫ ───────────────────────────────── */
+.hse-header {
+  background: var(--hse-white);
+  border-bottom: 1.5px solid var(--hse-blue-border);
+  padding: 16px 24px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.06);
+}
+
+.hse-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.hse-header-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.hse-header-round {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--hse-dark);
+}
+
+.hse-header-sub {
+  font-size: 12px;
+  color: var(--hse-muted);
+  margin-top: 1px;
+}
+
+.hse-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.hse-progress-bar {
+  height: 3px;
+  background: var(--hse-blue-border);
+  border-radius: 99px;
+  overflow: hidden;
+  margin: 0 -24px;
+}
+
+.hse-progress-fill {
+  height: 100%;
+  background: var(--hse-blue);
+  border-radius: 99px;
+  transition: width 0.6s ease;
+}
+
+/* ── MAIN ─────────────────────────────────────── */
+.hse-main {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hse-game-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .hse-game-layout {
+    grid-template-columns: 1fr;
+  }
+  .hse-log {
+    order: 2;
+  }
+}
+
+/* ── ДИЛЕММА ─────────────────────────────────── */
+.hse-dilemma {
+  background: var(--hse-white);
+  border: 1.5px solid var(--hse-blue-border);
+  border-radius: var(--hse-radius);
+  padding: 32px;
+  box-shadow: var(--hse-shadow);
+  animation: hseSlideIn 0.35s ease;
+}
+
+@keyframes hseSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hse-dilemma-situation {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hse-blue);
+  margin-bottom: 10px;
+}
+
+.hse-dilemma-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--hse-dark);
+  margin-bottom: 14px;
+  line-height: 1.25;
+}
+
+.hse-dilemma-desc {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--hse-mid);
+  margin-bottom: 28px;
+  padding: 16px;
+  background: var(--hse-blue-pale);
+  border-left: 3px solid var(--hse-blue-light);
+  border-radius: 8px;
+}
+
+.hse-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hse-choice {
+  font-family: "Golos Text", sans-serif;
+  width: 100%;
+  text-align: left;
+  border-radius: 12px;
+  padding: 18px 20px;
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s,
+    border-color 0.15s;
+  position: relative;
+  overflow: hidden;
+}
+
+.hse-choice:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--hse-shadow-lg);
+}
+
+.hse-choice-safe {
+  background: #f0fdf4;
+  border: 2px solid #bbf7d0;
+  color: var(--hse-dark);
+}
+
+.hse-choice-safe:hover {
+  border-color: #4ade80;
+  background: #ecfdf5;
+}
+
+.hse-choice-risk {
+  background: #fff7ed;
+  border: 2px solid #fed7aa;
+  color: var(--hse-dark);
+}
+
+.hse-choice-risk:hover {
+  border-color: #fb923c;
+  background: #fff1e6;
+}
+
+.hse-choice-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  color: var(--hse-muted);
+}
+
+.hse-choice-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--hse-dark);
+  margin-bottom: 10px;
+}
+
+.hse-choice-deltas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hse-pos {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--hse-green);
+}
+.hse-neg {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--hse-red);
+}
+
+/* ── КАРТОЧКА РЕЗУЛЬТАТА ─────────────────────── */
+.hse-result-card,
+.hse-penalty-card {
+  background: var(--hse-white);
+  border-radius: var(--hse-radius);
+  padding: 36px;
+  box-shadow: var(--hse-shadow);
+  text-align: center;
+  animation: hseSlideIn 0.35s ease;
+}
+
+.hse-rc-safe {
+  border: 2px solid #86efac;
+}
+.hse-rc-risk {
+  border: 2px solid #fca5a5;
+}
+
+.hse-penalty-card {
+  border: 2px solid #fca5a5;
+  background: #fff5f5;
+}
+
+.hse-rc-emoji,
+.hse-penalty-emoji {
+  font-size: 52px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.hse-rc-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 99px;
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+
+.hse-rb-safe {
+  background: #dcfce7;
+  color: #166534;
+}
+.hse-rb-risk {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.hse-penalty-badge {
+  display: inline-block;
+  background: #fee2e2;
+  color: #991b1b;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 99px;
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+
+.hse-rc-text,
+.hse-penalty-text {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--hse-mid);
+  margin-bottom: 20px;
+}
+
+.hse-rc-warning {
+  font-size: 13px;
+  color: var(--hse-amber);
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+}
+
+.hse-penalty-deltas {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.hse-penalty-moral {
+  font-size: 14px;
+  color: var(--hse-mid);
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* ── ЛОГ ─────────────────────────────────────── */
+.hse-log {
+  background: var(--hse-white);
+  border: 1.5px solid var(--hse-blue-border);
+  border-radius: var(--hse-radius);
+  padding: 20px;
+  box-shadow: var(--hse-shadow);
+  position: sticky;
+  top: 160px;
+  max-height: calc(100vh - 200px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.hse-log-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hse-muted);
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.hse-log-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.hse-log-entries::-webkit-scrollbar {
+  width: 4px;
+}
+.hse-log-entries::-webkit-scrollbar-track {
+  background: transparent;
+}
+.hse-log-entries::-webkit-scrollbar-thumb {
+  background: var(--hse-blue-border);
+  border-radius: 99px;
+}
+
+.hse-log-empty {
+  font-size: 13px;
+  color: var(--hse-muted);
+  text-align: center;
+  padding: 20px 0;
+}
+
+.hse-log-entry {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.45;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: var(--hse-mid);
+  align-items: flex-start;
+}
+
+.hse-log-emoji {
+  flex-shrink: 0;
+  font-size: 14px;
+}
+.hse-log-safe {
+  background: #f0fdf4;
+}
+.hse-log-unsafe {
+  background: #fff7ed;
+}
+.hse-log-penalty {
+  background: #fff1f2;
+}
+.hse-log-bonus {
+  background: #f0fdf4;
+}
+.hse-log-info {
+  background: var(--hse-blue-pale);
+}
+
+/* ── ИТОГОВЫЙ ЭКРАН ──────────────────────────── */
+.hse-result {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 24px;
+  background: linear-gradient(145deg, #eff6ff 0%, #ffffff 60%, #dbeafe 100%);
+}
+
+.hse-result-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 20px;
+  border-radius: 99px;
+  margin-bottom: 20px;
+}
+
+.hse-result-win {
+  background: #d1fae5;
+  color: #065f46;
+}
+.hse-result-lose {
+  background: #fee2e2;
+  color: #7f1d1d;
+}
+
+.hse-result-title {
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 900;
+  color: var(--hse-dark);
+  margin-bottom: 14px;
+  max-width: 600px;
+}
+
+.hse-result-subtitle {
+  font-size: 16px;
+  color: var(--hse-muted);
+  max-width: 480px;
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+
+.hse-result-stats {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.hse-result-stat {
+  background: var(--hse-white);
+  border: 1.5px solid var(--hse-blue-border);
+  border-radius: 12px;
+  padding: 16px 24px;
+  min-width: 120px;
+  box-shadow: var(--hse-shadow);
+}
+
+.hse-stat-num {
+  display: block;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--hse-blue);
+}
+
+.hse-stat-lbl {
+  display: block;
+  font-size: 12px;
+  color: var(--hse-muted);
+  margin-top: 2px;
+}
+
+.hse-verdict {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--hse-mid);
+  background: var(--hse-white);
+  border: 1.5px solid var(--hse-blue-border);
+  border-radius: 12px;
+  padding: 14px 24px;
+  margin-bottom: 32px;
+  box-shadow: var(--hse-shadow);
 }

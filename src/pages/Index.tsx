@@ -754,7 +754,7 @@ export default function Index() {
             <div className="hse-badge">HSE СИМУЛЯТОР · ЖК СТРОЙКА</div>
             <h1 className="hse-menu-title">Безопасность<br /><span>экономит деньги</span></h1>
             <p className="hse-menu-desc">
-              Вы — Директор проекта Технического заказчика. Стройте ЖК, принимайте решения и не разоряйтесь на штрафах Ростехнадзора.
+              Вы — Директор проекта Технического заказчика. Стройте курорт, принимайте решения и не разоряйтесь на штрафах.
             </p>
             <div className="hse-rounds-preview">
               {ROUNDS.map(r => (

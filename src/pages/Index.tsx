@@ -751,7 +751,7 @@ export default function Index() {
       <div className="hse-root">
         <div className="hse-menu">
           <div className="hse-menu-inner">
-            <div className="hse-badge">HSE СИМУЛЯТОР · ЖК СТРОЙКА</div>
+            <div className="hse-badge">HSE СИМУЛЯТОР </div>
             <h1 className="hse-menu-title">Безопасность<br /><span>экономит деньги</span></h1>
             <p className="hse-menu-desc">
               Вы — Директор проекта Технического заказчика. Стройте курорт, принимайте решения и не разоряйтесь на штрафах.
@@ -774,9 +774,7 @@ export default function Index() {
                 </button>
               )}
             </div>
-            <div className="hse-menu-hint">
-              💡 Каждый дешёвый выбор аукнется на следующем шаге — в 3 раза дороже
-            </div>
+            <div className="hse-menu-hint">💡 Каждый дешёвый выбор аукнется на следующем шаге.</div>
           </div>
           <div className="hse-menu-decoration">
             <div className="hse-deco-circle hse-deco-1" />
